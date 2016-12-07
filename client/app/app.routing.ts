@@ -1,16 +1,16 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { ExampleComponent } from './components/example/example.component';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/example',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
     {
-        path: 'example',
-        component: ExampleComponent
+        path: 'home',
+        component: HomeComponent
     },
 ];
 

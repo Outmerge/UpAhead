@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 // [Components]
-import { ExampleComponent } from './components/example/example.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
     imports: [
@@ -18,7 +18,7 @@ import { ExampleComponent } from './components/example/example.component';
     ],
     declarations: [
         AppComponent,
-        ExampleComponent
+        HomeComponent
     ],
     providers: [],
     bootstrap: [
