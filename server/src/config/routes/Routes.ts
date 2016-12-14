@@ -2,7 +2,7 @@ import express = require('express');
 import path = require('path');
 
 import Middleware = require('./Middleware');
-import ExampleRoutes = require('../routes/ExampleRoutes');
+import PlaceRoutes = require('../routes/PlaceRoutes');
 
 var app = express();
 
@@ -10,7 +10,7 @@ class Routes {
 
     get routes() {
 
-        app.use("/examples", new ExampleRoutes(new Middleware().allowAll).routes);
+        app.use("/places", new PlaceRoutes(new Middleware().allowAll).routes);
         
         return app;
     }
