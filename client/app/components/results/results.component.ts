@@ -32,17 +32,16 @@ export class ResultsComponent implements OnInit {
         // ...
 
         // List results fetched from the API
+        // ! Tip
+        // let coordinate: CoordinateModel = <CoordinateModel>{
+        //     lat: '20',
+        //     lng: '20'
+        // };
+        // this._places.list(coordinate).subscribe(
+        //     res => {
+        //         console.log(res);
+        //     }
+        // );
         // ...
-
-        let coordinate: CoordinateModel = <CoordinateModel>{
-            lat: '20',
-            lng: '20'
-        };
-        this._places.list(coordinate).subscribe(
-            res => {
-                console.log(res);
-            }
-        );
-
     }
 }
