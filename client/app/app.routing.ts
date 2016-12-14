@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
+import { ResultsComponent } from './components/results/results.component';
 
 const appRoutes: Routes = [
     {
@@ -11,6 +12,10 @@ const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'results/:query',
+        component: ResultsComponent
     },
 ];
 

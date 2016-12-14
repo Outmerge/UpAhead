@@ -7,7 +7,7 @@
         <p>UpAhead is a new app that lets you find the right gear shop for your next adventure.</p>
     </div>
     <div class="panel-footer">
-        <input class="input" type="text" placeholder="Look for a shop...">
+        <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="Look for a shop...">
         <button type="button" class="btn btn-primary">Search</button>
     </div>
 </div>

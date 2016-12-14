@@ -13,9 +13,16 @@ import {Router} from '@angular/router';
 
 export class HomeComponent implements OnInit {
 
-    private message: string = 'Hello World of Angular2 and ExpressJS! With MongoDB sprinkles.';
+    private query: string = '';
 
     constructor(private _router: Router) {}
 
     ngOnInit() {}
+
+    queryPlaces() {
+        console.log('Hello world', this.query);
+
+        // Navigate to /results with this.query argument
+        // ...
+    }
 }

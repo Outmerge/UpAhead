@@ -8,6 +8,11 @@ import { routing } from './app.routing';
 
 // [Components]
 import { HomeComponent } from './components/home/home.component';
+import { ResultsComponent } from './components/results/results.component';
+
+// [Services]
+import { ConfigService } from './services/config.service';
+import { PlacesService } from './services/places.service';
 
 @NgModule({
     imports: [
@@ -18,9 +23,13 @@ import { HomeComponent } from './components/home/home.component';
     ],
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        ResultsComponent
     ],
-    providers: [],
+    providers: [
+        ConfigService,
+        PlacesService
+    ],
     bootstrap: [
         AppComponent
     ]
