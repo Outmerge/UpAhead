@@ -53,6 +53,12 @@
     margin-left: 25%;
     cursor: pointer;
 }
+.btn.btn-primary:hover{
+    color: #ffffff;
+    background-color: #00A69C;
+    -webkit-transition-delay: 1s; /* Safari */
+    transition-delay: 1s;
+}
 .panel-default>.panel-heading {
     font-size: 1.5em;
     font-weight: 300;
