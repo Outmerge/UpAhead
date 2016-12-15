@@ -4,6 +4,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
 
     queryPlaces() {
         console.log('Hello world', this.query);
-
+        this._router.navigate(['/results/', this.query]);
         // Navigate to /results with this.query argument
         // ...
     }
