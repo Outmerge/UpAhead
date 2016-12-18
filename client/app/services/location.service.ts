@@ -1,48 +1,33 @@
-import {ngSelectLocation, EmitterService}   from './browser-location';
 import {Injectable} from '@angular/core';
 import { Http, Headers } from '@angular/http';
-//import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import {Location} from './location-interface';
 
+import {Location} from '../components/location/location-interface';
+import {EmitterService} from './emitter.service';
 /**
- * The {{#crossLink "GeolocationService"}}{{/crossLink}} class ,for getting  city name using HTML geolocation.
- *
- * @Injectable class is injectable to other components and services
- * @class GeolocationService
- * @constructor
- **/
-
+The {{#crossLink "GeolocationService"}}{{/crossLink}} class ,for getting  city name using HTML geolocation.
+**/
 @Injectable()
-export class nglocationService {
-
-  /**
-      * The location property is used to store location object in localStorage.
-      *
-      * @property location
-      * @type {Location}
-      *
-      */
+export class LocationService {
+/**
+The location property is used to store location object in localStorage.
+*/
     public location: Location ;
     constructor( public http: Http) {}
-
-    /**
-     * The getCitydata function is intended to check wheather location is selected or not.
-     * It if checks the 'city' parameter of localStorage exixts.
-     * If true the location i.e city is set into the headers else 'navigator.geolocation.getCurrentPosition()' method is called to get browser location.
-     *
-     * @method getCitydata
-     */
-
+/**
+*The getCitydata function is intended to check wheather location is selected or not.
+* It if checks the 'city' parameter of localStorage exixts.
+* If true the location i.e city is set into the headers else 'navigator.geolocation.getCurrentPosition()' method is called to get browser location.
+* @method getCitydata
+*/
     getCitydata() {
       let localCity = localStorage.getItem('city');
       if([null, undefined, ""].indexOf(localCity,0) != -1){
           navigator.geolocation.getCurrentPosition(this.successCallback,this.errorCallback,this.options);
-        }
+      }
       else{
           // do something when you already have the location
-        }
+      }
     }
-
     /**
      * The displayLocation function is intended to get city name from browser location.
      * Google map's API is requested and the response is the json of the full address which is reduced to get the city name.
@@ -84,10 +69,6 @@ export class nglocationService {
       }
       );
     };
-
-
-
-
 
     successCallback = (position)=> {
             let latitude = position.coords.latitude;

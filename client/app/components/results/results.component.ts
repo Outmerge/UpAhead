@@ -10,7 +10,7 @@ import { CoordinateModel } from '../../models/coordinate.model';
 
 import { PlacesService } from '../../services/places.service';
 
-import {ngSelectLocation, EmitterService} from '../location/browser-location';
+import {LocationComponent} from '../location/location.component';
 
 @Component({
     selector: 'results',
@@ -24,22 +24,15 @@ export class ResultsComponent implements OnInit {
     public selectedCity:any;
     constructor(private _router: Router,
                 private _places: PlacesService,
-                private route: ActivatedRoute,
-                private EmitterService: EmitterService) {
-                    window.localStorage.removeItem("city");
-                 };
+                private route: ActivatedRoute) {};
 
     ngOnInit() {
         this.route.params
             .map(params => params['query'])
             .subscribe(res => this.thequery = res)
-             console.log("avem la search:", this.thequery);
-        this.selectedCity = localStorage.getItem('city');
-        EmitterService.get("selectedCity").subscribe(data =>{
-        this.selectedCity = data;
-        localStorage.setItem('city', data);
-        });
-        }
+             console.log("avem la search:", this.thequery);     
+    }
+}
         // Get "query" argument
         // ! Tip: ActivatedRoute
         // ...
@@ -62,5 +55,4 @@ export class ResultsComponent implements OnInit {
         //     }
         // );
         // ...
-    }
-}
+

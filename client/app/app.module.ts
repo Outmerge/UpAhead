@@ -9,12 +9,14 @@ import { routing } from './app.routing';
 // [Components]
 import { HomeComponent } from './components/home/home.component';
 import { ResultsComponent } from './components/results/results.component';
-import { ngSelectLocation } from './components/location/browser-location';
+import { LocationComponent } from './components/location/location.component';
 
 // [Services]
 import { ConfigService } from './services/config.service';
 import { PlacesService } from './services/places.service';
-import { EmitterService } from './components/location/browser-location';
+import { EmitterService } from './services/emitter.service';
+import { LocationService } from './services/location.service';
+
 
 @NgModule({
     imports: [
@@ -27,12 +29,13 @@ import { EmitterService } from './components/location/browser-location';
         AppComponent,
         HomeComponent,
         ResultsComponent,
-        ngSelectLocation
+        LocationComponent
     ],
     providers: [
         ConfigService,
         PlacesService,
-        EmitterService
+        EmitterService,
+        LocationService
     ],
     bootstrap: [
         AppComponent
