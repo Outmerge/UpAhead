@@ -1,14 +1,36 @@
 /// <reference path="../typings/index.d.ts" />
 
 import express = require('express');
-import BaseRoutes = require("./config/routes/Routes");
-import bodyParser = require("body-parser");
+import bodyParser = require('body-parser');
 
+import BaseRoutes = require("./config/routes/Routes");
 import path = require('path');
+
 var port: number = process.env.PORT || 8090;
 var env: string = process.env.NODE_ENV || 'developement';
 
 var app = express();
+
+// Set up RedisStore
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+var redis = require('redis').createClient();
+
+app.use(session({
+    store: new RedisStore({
+        host: 'localhost',
+        port: 6379,
+        client: redis,
+        ttl :  260
+    }),
+    secret: 'keyboard cat!',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: 36000000,
+        httpOnly: false
+    }
+}));
 
 app.set('port', port);
 

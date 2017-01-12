@@ -6,6 +6,9 @@ import express = require("express");
 import PlaceBusiness = require("./../app/business/PlaceBusiness");
 import IBaseController = require("./BaseController");
 import IPlaceModel = require("./../app/model/interfaces/PlaceModel");
+import ICoordinateModel = require("./../app/model/interfaces/CoordinateModel");
+
+// var XXHash = require('xxhash');
 
 class PlaceController implements IBaseController <PlaceBusiness> {
 
@@ -15,13 +18,13 @@ class PlaceController implements IBaseController <PlaceBusiness> {
             var place: IPlaceModel = <IPlaceModel>req.body;
             var placeBusiness = new PlaceBusiness();
             placeBusiness.create(place, (error, result) => {
-                if(error) res.send({"error": "error"});
+                if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
                 else res.send({"success": "success"});
             });
         }
         catch (e)  {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
 
         }
     }
@@ -31,13 +34,13 @@ class PlaceController implements IBaseController <PlaceBusiness> {
             var _id: string = req.params._id;
             var placeBusiness = new PlaceBusiness();
             placeBusiness.update(_id, place, (error, result) => {
-                if(error) res.send({"error": "error"});
+                if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
                 else res.send({"success": "success"});
             });
         }
         catch (e)  {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
 
         }
     }
@@ -47,83 +50,68 @@ class PlaceController implements IBaseController <PlaceBusiness> {
             var _id: string = req.params._id;
             var placeBusiness = new PlaceBusiness();
             placeBusiness.delete(_id, (error, result) => {
-                if(error) res.send({"error": "error"});
+                if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
                 else res.send({"success": "success"});
             });
         }
         catch (e)  {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
 
         }
     }
     retrieve(req: express.Request, res: express.Response): void {
         try {
 
-            // var placeBusiness = new PlaceBusiness();
-            // placeBusiness.retrieve((error, result) => {
-            //     if(error) res.send({"error": "error"});
-            //     else res.send(result);
-            // });
+            var _query: string = req.query.query;
+            var _coordinate: string = req.query.coordinate;
 
-            let result: any = [
-                {
-                    _id: '21f3921b31u2b012b03b21u3b21u3b12',
-                    name: 'EPIC Sport',
-                    tags: ['shoes', 'sport', 't-shirts', 'ski', 'snowboard', 'climbing'],
-                    distance: 212,
-                    sponsored: true
-                },
-                {
-                    _id: '21f3921b31u2b012b03b21u3b21u3b12',
-                    name: 'Boarder\'s Shop',
-                    tags: ['skate', 'shoes', 'sport'],
-                    distance: 3400,
-                    sponsored: false
-                },
-                {
-                    _id: '21f3921b31u2b012b03b21u3b21u3b12',
-                    name: 'U Man',
-                    tags: ['shoes', 't-shirts'],
-                    distance: 2319,
-                    sponsored: false
-                }
-            ];
-            res.send(result);
+            if (_query && _coordinate) {
+                var placeBusiness = new PlaceBusiness();
+                placeBusiness.retrieveFromThirdParty(_query, _coordinate, (error, result) => {
+                    if (error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
+                    else {
+                        if (req.session) {
+                            for (var index = 0; index < result.data.length; index ++)
+                                req.session['{place-id}' + result.data[index].placeId] = result.data[index];
+                        }
+                        res.send(result.results);
+                    }
+                });
+            } else {
+                res.status(400).send({ success: false, message: 'Invalid request.', error: null });
+            }
         }
         catch (e)  {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
 
         }
     }
     findById(req: express.Request, res: express.Response): void {
         try {
 
-            // var _id: string = req.params._id;
-            // var placeBusiness = new PlaceBusiness();
-            // placeBusiness.findById(_id, (error, result) => {
-            //     if(error) res.send({"error": "error"});
-            //     else res.send(result);
-            // });
+            var _id: string = req.params._id;
+            var _coordinate: string = req.query.coordinate;
 
-            let result: any = {
-                _id: '21f3921b31u2b012b03b21u3b21u3b12',
-                name: 'EPIC Sport',
-                tags: ['shoes', 'sport', 't-shirts', 'ski', 'snowboard', 'climbing'],
-                description: '',
-                distance: 212,
-                coordinate: {
-                    lat: '20.21312421',
-                    lng: '15.92309234'
-                },
-                sponsored: true
-            };
-            res.send(result);
+            var placeBusiness = new PlaceBusiness();
+
+            if (_coordinate) {
+                if (req.session && req.session['{place-id}' + _id]) {
+                    res.send(req.session['{place-id}' + _id]);
+                } else {
+                    placeBusiness.findByIdFromThirdParty(_id, _coordinate, (error, result) => {
+                        if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
+                        else res.send(result);
+                    });
+                }
+            } else {
+                res.status(400).send({ success: false, message: 'Invalid request.', error: null });
+            }
         }
         catch (e)  {
             console.log(e);
-            res.send({"error": "error in your request"});
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
 
         }
     }

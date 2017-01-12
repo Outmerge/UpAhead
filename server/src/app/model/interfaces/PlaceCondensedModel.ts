@@ -1,12 +1,15 @@
 /**
- * 
+ * Created by Cosmin.Atomei on 10-09-2016.
  */
-export class PlaceCondensedModel {
-    _id: string;
+
+interface PlaceCondensedModel {
+    id: string;
     name: string;
     tags: Array<string>;
     distance: number;
     sponsored: boolean;
     photoUrl: string;
     open: boolean;
-} 
+}
+
+export = PlaceCondensedModel;

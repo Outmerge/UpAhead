@@ -8,6 +8,7 @@
 declare namespace Express {
     export interface Request {
         originalMethod?: string;
+        session: [any];
     }
 }
 
