@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CoordinateModel } from '../../models/coordinate.model';
 
 import { PlacesService } from '../../services/places.service';
+import { LocationService} from '../../services/location.service';
 
 import {LocationComponent} from '../location/location.component';
 
@@ -24,35 +25,30 @@ export class ResultsComponent implements OnInit {
     public selectedCity:any;
     constructor(private _router: Router,
                 private _places: PlacesService,
-                private route: ActivatedRoute) {};
+                private route: ActivatedRoute,
+                private _location:LocationService) {};
 
     ngOnInit() {
         this.route.params
             .map(params => params['query'])
             .subscribe(res => this.thequery = res)
-             console.log("avem la search:", this.thequery);     
+             console.log("avem la search:", this.thequery);   
+        this._location.getCoordinates((position) => {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let coordinate: CoordinateModel = <CoordinateModel>{
+                lat: latitude,
+                lng: longitude
+            };
+            this._places.list(coordinate).subscribe(
+                res => {
+                 console.log(res);
+                 // afisam results
+                }
+            );
+        });      
     }
 }
-        // Get "query" argument
-        // ! Tip: ActivatedRoute
-        // ...
 
-        // Get User's location coordinates
-        // ...
 
-        // Make API endpoint call to (PlacesService)
-        // ...
-
-        // List results fetched from the API
-        // ! Tip
-        // let coordinate: CoordinateModel = <CoordinateModel>{
-        //     lat: '20',
-        //     lng: '20'
-        // };
-        // this._places.list(coordinate).subscribe(
-        //     res => {
-        //         console.log(res);
-        //     }
-        // );
-        // ...
 

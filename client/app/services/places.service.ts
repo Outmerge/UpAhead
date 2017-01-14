@@ -21,7 +21,7 @@ export class PlacesService {
         private _config: ConfigService) { }
     
     list(coordinate: CoordinateModel) {
-        const path = this._config.apiUrl + '/places?lat={latitude}&lng={longitude}'
+        const path = this._config.apiUrl + '/places?query=sport&coordinate={latitude},{longitude}'
             .replace('{latitude}', coordinate.lat)
             .replace('{longitude}', coordinate.lng);
         

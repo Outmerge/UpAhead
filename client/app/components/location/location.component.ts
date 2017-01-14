@@ -21,11 +21,11 @@ export class LocationComponent implements OnInit {
   The selectedCity property is used to show the current city name.
   */
   public selectedCity: string;
-  constructor(private _ngLocation: LocationService) {}
+  constructor(private _location: LocationService) {}
 
   ngOnInit(){
   window.localStorage.removeItem("city");
-  this._ngLocation.getCitydata();
+  this._location.getCitydata();
   EmitterService.get("selectedCity")
     .subscribe(data =>{
       this.selectedCity = data;
