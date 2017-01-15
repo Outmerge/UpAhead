@@ -12,6 +12,11 @@ import { PlacesService } from '../../services/places.service';
 import { LocationService} from '../../services/location.service';
 
 import {LocationComponent} from '../location/location.component';
+import {PlaceComponent} from '../place/place.component';
+import {Place} from '../place/place.interface';
+
+
+
 
 @Component({
     selector: 'results',
@@ -23,6 +28,7 @@ export class ResultsComponent implements OnInit {
 
     private thequery:string = '';
     public selectedCity:any;
+    public places:Array<Place> = [];
     constructor(private _router: Router,
                 private _places: PlacesService,
                 private route: ActivatedRoute,
@@ -43,6 +49,7 @@ export class ResultsComponent implements OnInit {
             this._places.list(coordinate).subscribe(
                 res => {
                  console.log(res);
+                 this.places = res;
                  // afisam results
                 }
             );
