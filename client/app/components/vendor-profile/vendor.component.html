@@ -1,0 +1,18 @@
+<div class="vendor">
+    <div class="top-container">
+        <div class="top-bar">
+            <button class="btn btn-back">Back</button>
+            <title class="title" *ngIf="place">{{place.name}}</title>
+            <button class="addFav">heart icon</button>
+        </div>
+        <img *ngIf="place" src="{{place.photoUrl}}" alt="">
+        <div class="tags" *ngIf="place">{{place.tags}}</div>
+    </div>
+    <div class="main-container">
+        <div class="adress" *ngIf="place">{{place.address}}</div>
+        <div class="description" *ngIf="place">{{place.description}}</div>
+        <div class="contact" *ngIf="place">{{place.contact}}</div>
+        <div class="map"></div>
+    </div>
+    <div class="getDirections"></div>
+</div>

@@ -11,16 +11,13 @@ import { HomeComponent } from './components/home/home.component';
 import { ResultsComponent } from './components/results/results.component';
 import { LocationComponent } from './components/location/location.component';
 import { PlaceComponent } from './components/place/place.component';
-
+import { VendorComponent } from './components/vendor-profile/vendor.component';
 
 // [Services]
 import { ConfigService } from './services/config.service';
 import { PlacesService } from './services/places.service';
 import { EmitterService } from './services/emitter.service';
 import { LocationService } from './services/location.service';
-
-
-
 
 @NgModule({
     imports: [
@@ -34,7 +31,8 @@ import { LocationService } from './services/location.service';
         HomeComponent,
         ResultsComponent,
         LocationComponent,
-        PlaceComponent
+        PlaceComponent,
+        VendorComponent
     ],
     providers: [
         ConfigService,

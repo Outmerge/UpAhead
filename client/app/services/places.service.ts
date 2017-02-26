@@ -31,4 +31,18 @@ export class PlacesService {
                 return res.json();
             });
     }
+    
+
+    getDetails(id: string, coordinate: CoordinateModel){
+        const path = this._config.apiUrl + '/places/{id}?coordinate={latitude},{longitude}'
+            .replace('{latitude}', coordinate.lat)
+            .replace('{longitude}', coordinate.lng)
+            .replace('{id}', id);
+        
+        return this._http
+            .get(path, { headers: this._config.apiHeaders.Default })
+            .map((res: Response) => {
+                return res.json();
+            });
+    }
 }

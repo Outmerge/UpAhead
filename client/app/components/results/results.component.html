@@ -1,10 +1,14 @@
-    <div class="panel-header">
-        <input class="input" type="text" [(ngModel)]="thequery">
-    </div>
-    <div class="container">
+<div class="top-container">
+        <div class="panel-header">
+            <input class="input" type="text" [(ngModel)]="thequery">
+        </div>
+        <div class="places_number">{{places_number}} results 
+        </div>
+</div>
+<div class="container">
         <div class="row">
             <results-place 
                 *ngFor="let place of places" class="results-place" [model]="place">
             </results-place>
         </div>
-    </div>
+</div>

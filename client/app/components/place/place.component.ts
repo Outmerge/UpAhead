@@ -12,10 +12,14 @@ import { Place } from './place.interface';
 
 
 export class PlaceComponent implements OnInit{
-
     @Input('model') model: Place = null;
-    constructor(){};
+    private id:string = '';
+    toVendor(){
+        this._router.navigate(['/vendor/', this.id]);
+    }   
+    constructor(private _router: Router){};
     ngOnInit(){
-        console.log("hello");
+        this.id = this.model.id;
     }
+
 }

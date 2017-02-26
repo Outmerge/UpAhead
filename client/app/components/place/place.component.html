@@ -5,9 +5,9 @@
             <div class="vender-name">{{model.name}}</div>
         </div>
         <div class="btm-container">
-            <div class="distance"><img src="../icon/location.png" height="15px" width="20px"> {{model.distance}} m </div>
-            <div class="btn btn-view">View</div>
-        </div>   
+            <div class="distance"><img src="../icon/location.png"> {{model.distance}} m </div>
+            <div class="btn btn-view" (click)="toVendor()" [id]="id">View</div>
+        </div>
     </article>
 
 
