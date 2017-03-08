@@ -1,14 +1,18 @@
 <div class="top-container">
         <div class="panel-header">
-            <input class="input" type="text" [(ngModel)]="thequery">
+            <input class="input" type="text" [(ngModel)]="query" (change)="search()">
         </div>
         <div class="places_number">{{places_number}} results 
         </div>
+        <div class="favorites" (click)="goToFavorites">Favorites 
+        </div>
 </div>
 <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="dataLoaded">
             <results-place 
                 *ngFor="let place of places" class="results-place" [model]="place">
             </results-place>
         </div>
+
+        <div class="row" *ngIf="!dataLoaded">Loading</div>
 </div>

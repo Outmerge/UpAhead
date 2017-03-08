@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ResultsComponent } from './components/results/results.component';
 import { VendorComponent } from './components/vendor-profile/vendor.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +23,12 @@ const appRoutes: Routes = [
     {
         path: 'vendor/:id',
         component: VendorComponent
+    },
+    {
+        path: 'favorites',
+        component: FavoritesComponent
     }
+
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

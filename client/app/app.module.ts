@@ -12,6 +12,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { LocationComponent } from './components/location/location.component';
 import { PlaceComponent } from './components/place/place.component';
 import { VendorComponent } from './components/vendor-profile/vendor.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 // [Services]
 import { ConfigService } from './services/config.service';
@@ -32,7 +33,8 @@ import { LocationService } from './services/location.service';
         ResultsComponent,
         LocationComponent,
         PlaceComponent,
-        VendorComponent
+        VendorComponent,
+        FavoritesComponent
     ],
     providers: [
         ConfigService,

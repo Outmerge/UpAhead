@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,8 +8,7 @@ import {Router} from '@angular/router';
 })
 
 export class AppComponent {
-    
-    constructor(private _router: Router) {}
 
+    constructor(private _router: Router) {}
     ngOnInit() {}
 }

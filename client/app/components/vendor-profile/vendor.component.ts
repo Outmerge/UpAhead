@@ -1,5 +1,5 @@
 
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Router, RouterModule, ActivatedRoute} from '@angular/router';
 
 import { PlacesService } from '../../services/places.service';
@@ -19,6 +19,8 @@ export class VendorComponent implements OnInit {
     private theid:string;
     public place: PlaceModel = null;
     public name: string;
+    public favorite: PlaceModel;
+
     constructor(private _router: Router,
                 private route: ActivatedRoute,
                 private _places: PlacesService,
@@ -42,7 +44,16 @@ export class VendorComponent implements OnInit {
                 }
             );
         });  
-    }   
+    }  
+
+    addToFavorite(){
+            this._places.addToFavorite(this.theid)
+            .subscribe(
+                res => {
+                    //
+                }
+            )
+        } 
 }
 
  
