@@ -13,6 +13,8 @@
                 *ngFor="let place of places" class="results-place" [model]="place">
             </results-place>
         </div>
-
         <div class="row" *ngIf="!dataLoaded">Loading</div>
+</div>
+<div class="footer">
+        <results-footer></results-footer>  
 </div>

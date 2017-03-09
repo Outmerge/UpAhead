@@ -15,7 +15,7 @@ import { LocationService } from '../../services/location.service';
 
 import { LocationComponent } from '../location/location.component';
 import { PlaceComponent } from '../place/place.component';
-import { VendorComponent } from '../vendor-profile/vendor.component';
+import { ResultsFooterComponent } from './results-footer/results-footer.component';
 import { Place } from '../place/place.interface';
 
 import { PlaceCondensedModel } from '../../models/place-condensed.model';

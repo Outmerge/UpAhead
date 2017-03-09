@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
+// [Modules]
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 // [Components]
 import { HomeComponent } from './components/home/home.component';
 import { ResultsComponent } from './components/results/results.component';
@@ -13,6 +16,7 @@ import { LocationComponent } from './components/location/location.component';
 import { PlaceComponent } from './components/place/place.component';
 import { VendorComponent } from './components/vendor-profile/vendor.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { ResultsFooterComponent } from './components/results/results-footer/results-footer.component';
 
 // [Services]
 import { ConfigService } from './services/config.service';
@@ -25,7 +29,10 @@ import { LocationService } from './services/location.service';
         BrowserModule,
         HttpModule,
         FormsModule,
-        routing
+        routing,
+        AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAGKYfEb0o6rh73OAdt5P6ZseF9FKgsXoM'
+    })
     ],
     declarations: [
         AppComponent,
@@ -34,7 +41,8 @@ import { LocationService } from './services/location.service';
         LocationComponent,
         PlaceComponent,
         VendorComponent,
-        FavoritesComponent
+        FavoritesComponent,
+        ResultsFooterComponent
     ],
     providers: [
         ConfigService,

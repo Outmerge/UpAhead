@@ -20,6 +20,8 @@ export class VendorComponent implements OnInit {
     public place: PlaceModel = null;
     public name: string;
     public favorite: PlaceModel;
+    public lat: number = 51.678418;
+    public lng: number = 7.809007;
 
     constructor(private _router: Router,
                 private route: ActivatedRoute,
