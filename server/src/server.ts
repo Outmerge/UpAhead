@@ -2,6 +2,7 @@
 
 import express = require('express');
 import bodyParser = require('body-parser');
+import cookieParser = require('cookie-parser');
 
 import BaseRoutes = require("./config/routes/Routes");
 import path = require('path');
@@ -40,6 +41,8 @@ app.use('/libs', express.static(path.resolve(__dirname, '../client/libs')));
 // for system.js to work. Can be removed if bundling.
 app.use(express.static(path.resolve(__dirname, '../client')));
 app.use(express.static(path.resolve(__dirname, '../../node_modules')));
+
+app.use(cookieParser());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
