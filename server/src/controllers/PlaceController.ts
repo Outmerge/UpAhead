@@ -8,8 +8,6 @@ import IBaseController = require("./BaseController");
 import IPlaceModel = require("./../app/model/interfaces/PlaceModel");
 import ICoordinateModel = require("./../app/model/interfaces/CoordinateModel");
 
-// var XXHash = require('xxhash');
-
 class PlaceController implements IBaseController <PlaceBusiness> {
 
     create(req: express.Request, res: express.Response): void {
@@ -28,6 +26,7 @@ class PlaceController implements IBaseController <PlaceBusiness> {
 
         }
     }
+
     update(req: express.Request, res: express.Response): void {
         try {
             var place: IPlaceModel = <IPlaceModel>req.body;
@@ -44,6 +43,7 @@ class PlaceController implements IBaseController <PlaceBusiness> {
 
         }
     }
+
     delete(req: express.Request, res: express.Response): void {
         try {
 
@@ -60,6 +60,7 @@ class PlaceController implements IBaseController <PlaceBusiness> {
 
         }
     }
+
     retrieve(req: express.Request, res: express.Response): void {
         try {
 
@@ -88,7 +89,66 @@ class PlaceController implements IBaseController <PlaceBusiness> {
 
         }
     }
+
     findById(req: express.Request, res: express.Response): void {
+        try {
+
+            var _id: string = req.params._id;
+            var _coordinate: string = req.query.coordinate;
+
+            var placeBusiness = new PlaceBusiness();
+
+            if (_coordinate) {
+                if (req.session && req.session['{place-id}' + _id]) {
+                    res.send(req.session['{place-id}' + _id]);
+                } else {
+                    placeBusiness.findByIdFromThirdParty(_id, _coordinate, (error, result) => {
+                        if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
+                        else res.send(result);
+                    });
+                }
+            } else {
+                res.status(400).send({ success: false, message: 'Invalid request.', error: null });
+            }
+        }
+        catch (e)  {
+            console.log(e);
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
+
+        }
+    }
+
+    addFavorite(req: express.Request, res: express.Response): void {
+        // To Do ...
+        try {
+
+            var _id: string = req.params._id;
+            var _coordinate: string = req.query.coordinate;
+
+            var placeBusiness = new PlaceBusiness();
+
+            if (_coordinate) {
+                if (req.session && req.session['{place-id}' + _id]) {
+                    res.send(req.session['{place-id}' + _id]);
+                } else {
+                    placeBusiness.findByIdFromThirdParty(_id, _coordinate, (error, result) => {
+                        if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
+                        else res.send(result);
+                    });
+                }
+            } else {
+                res.status(400).send({ success: false, message: 'Invalid request.', error: null });
+            }
+        }
+        catch (e)  {
+            console.log(e);
+            res.send({ success: false, message: 'There was an error in your request.', error: e });
+
+        }
+    }
+
+    removeFavorite(req: express.Request, res: express.Response): void {
+        // To Do ...
         try {
 
             var _id: string = req.params._id;
