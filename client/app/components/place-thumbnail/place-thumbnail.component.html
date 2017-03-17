@@ -1,7 +1,11 @@
 
     <article class="vender-prw">
-        <div class="top-container">
+        <div class="top-container" *ngIf="model.photoUrl">
             <img src="{{ model.photoUrl }}" alt="">
+            <div class="vender-name">{{model.name}}</div>
+        </div>
+        <div class="top-container" *ngIf="!model.photoUrl">
+            <img src="../../../media/fail-img.jpg" alt="">
             <div class="vender-name">{{model.name}}</div>
         </div>
         <div class="btm-container">
