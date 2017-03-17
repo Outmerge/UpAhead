@@ -9,9 +9,9 @@
 </div>
 <div class="container">
         <div class="row" *ngIf="dataLoaded">
-            <results-place 
+            <place-thumbnail 
                 *ngFor="let place of places" class="results-place" [model]="place">
-            </results-place>
+            </place-thumbnail>
         </div>
         <div class="row" *ngIf="!dataLoaded">Loading</div>
 </div>

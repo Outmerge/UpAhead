@@ -1,27 +1,62 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Place } from './place.interface';
 
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
+
+import { PlacesService } from '../../services/places.service';
+import { LocationService} from '../../services/location.service';
+
+import { CoordinateModel } from '../../models/coordinate.model';
+import { PlaceModel } from '../../models/place.model';
+
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @Component({
-    selector: 'results-place',
+    selector: 'place',
     templateUrl: './app/components/place/place.component.html',
-    styleUrls: ['./app/components/place/place.component.css'],
+    styleUrls: ['./app/components/place/place.component.css']
 })
 
+export class PlaceComponent implements OnInit {
+    private theid:string;
+    public place: PlaceModel = null;
+    public name: string;
+    public favorite: PlaceModel;
+    public lat: number = 51.678418;
+    public lng: number = 7.809007;
 
-export class PlaceComponent implements OnInit{
-    @Input('model') model: Place = null;
-    private id:string = '';
-     
-    constructor(private _router: Router){};
-    ngOnInit(){
-        this.id = this.model.id;
-    }
+    constructor(private _router: Router,
+                private route: ActivatedRoute,
+                private _places: PlacesService,
+                private _location:LocationService) {}
+    ngOnInit() {
+        this.route.params
+            .map(params => params['id'])
+            .subscribe(res => this.theid = res);
+        this._location.getCoordinates((position) => {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let coordinate: CoordinateModel = <CoordinateModel>{
+                lat: latitude,
+                lng: longitude
+            };
+            this._places.getDetails(this.theid, coordinate).subscribe(
+                res => {
+                 console.log(res);
+                 this.place = res;
+                 // afisam details
+                }
+            );
+        });  
+    }  
 
-     toVendor(){
-        this._router.navigate(['/vendor/', this.id]);
-    } 
-
+    addToFavorite(){
+            this._places.addToFavorite(this.theid)
+            .subscribe(
+                res => {
+                    //
+                }
+            )
+        } 
 }
+
+ 

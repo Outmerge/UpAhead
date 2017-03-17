@@ -1,5 +1,5 @@
 
-export interface Place {
+export interface PlaceThumbnailModel {
     distance:number;
     id:string;
     name:string;

@@ -1,14 +1,21 @@
-
-    <article class="vender-prw">
-        <div class="top-container">
-            <img src="{{ model.photoUrl }}" alt="">
-            <div class="vender-name">{{model.name}}</div>
+<div class="vendor">
+    <div class="top-container">
+        <div class="top-bar">
+            <button class="btn btn-back">Back</button>
+            <title class="title" *ngIf="place">{{place.name}}</title>
+            <button class="addFav" (click)="addToFavorite()">add to Favorites</button>
         </div>
-        <div class="btm-container">
-            <div class="distance"><img src="../icon/location.png"> {{model.distance}} m </div>
-            <div class="btn btn-view" (click)="toVendor()" [id]="id">View</div>
-        </div>
-    </article>
-   
-
-
+        <img *ngIf="place" src="{{place.photoUrl}}" alt="">
+        <div class="tags" *ngIf="place">{{place.tags}}</div>
+    </div>
+    <div class="main-container">
+        <div class="adress" *ngIf="place">{{place.address}}</div>
+        <div class="description" *ngIf="place">{{place.description}}</div>
+        <div class="contact" *ngIf="place">{{place.contact.phone}} {{place.contact.email}}</div>
+        <div class="map"></div>
+    </div>
+    <div class="getDirections"></div>
+    <sebm-google-map [latitude]="lat" [longitude]="lng">
+        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+    </sebm-google-map>
+</div>

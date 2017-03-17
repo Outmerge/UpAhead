@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
 import { PlacesService } from '../../services/places.service';
-import { PlaceModel} from '../../models/place.model';
+import { PlaceCondensedModel} from '../../models/place-condensed.model';
 
 @Component({
     selector: 'favorite',
@@ -10,7 +10,7 @@ import { PlaceModel} from '../../models/place.model';
 })
 
 export class FavoritesComponent {
-    places: Array<PlaceModel> = [];
+    places: Array<PlaceCondensedModel> = [];
 
     constructor(private _places: PlacesService){};
     ngOnInit(){

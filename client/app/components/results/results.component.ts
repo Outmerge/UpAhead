@@ -16,7 +16,6 @@ import { LocationService } from '../../services/location.service';
 import { LocationComponent } from '../location/location.component';
 import { PlaceComponent } from '../place/place.component';
 import { ResultsFooterComponent } from './results-footer/results-footer.component';
-import { Place } from '../place/place.interface';
 
 import { PlaceCondensedModel } from '../../models/place-condensed.model';
 
@@ -33,7 +32,7 @@ export class ResultsComponent implements OnInit {
     private query: string = '';
     public selectedCity: any;
     public places_number: number;
-    public places: Array<Place> = [];
+    public places: Array<PlaceCondensedModel> = [];
 
     constructor(private _router: Router,
         private _places: PlacesService,
