@@ -21,14 +21,15 @@ export class PlaceComponent implements OnInit {
     public place: PlaceModel = null;
     public name: string;
     public favorite: PlaceModel;
-    public lat: number = 51.678418;
-    public lng: number = 7.809007;
+    public lat: string = '';
+    public lng: string = '';
 
     constructor(private _router: Router,
                 private route: ActivatedRoute,
                 private _places: PlacesService,
                 private _location:LocationService) {}
     ngOnInit() {
+
         this.route.params
             .map(params => params['id'])
             .subscribe(res => this.theid = res);
@@ -41,12 +42,13 @@ export class PlaceComponent implements OnInit {
             };
             this._places.getDetails(this.theid, coordinate).subscribe(
                 res => {
-                 console.log(res);
-                 this.place = res;
-                 // afisam details
+                    console.log(res);
+                    this.place = res;
+                    this.lat = this.place.coordinate.lat;
+                    this.lng = this.place.coordinate.lng;  
                 }
             );
-        });  
+        });
     }  
 
     addToFavorite(){

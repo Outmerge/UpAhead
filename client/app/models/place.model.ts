@@ -1,11 +1,14 @@
 
+import { CoordinateModel } from './coordinate.model';
+
+
 export class PlaceModel {
     placeId: string;
     name: string;
     description: string;
     address: string;
     contact: Object;
-    coordinate: Object;
+    coordinate: CoordinateModel;
     photoUrl: string;
     photos: Array<string>;
     tags: Array<string>;

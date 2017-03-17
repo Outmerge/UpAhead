@@ -72,7 +72,7 @@ export class LocationService {
           alert(error.text());
         }
         );
-      };
+  };
 
   successCallback = (position) => {
     let latitude = position.coords.latitude;

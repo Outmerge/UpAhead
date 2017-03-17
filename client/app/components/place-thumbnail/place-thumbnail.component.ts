@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { PlaceThumbnailModel } from './place-thumbnail.interface';
+import { PlaceCondensedModel } from '../../models/place-condensed.model';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { PlaceThumbnailModel } from './place-thumbnail.interface';
 
 export class PlaceThumbnailComponent implements OnInit{
     
-    @Input('model') model: PlaceThumbnailModel = null;
+    @Input('model') model: PlaceCondensedModel = null;
     private id:string = '';
      
     constructor(private _router: Router){};
@@ -23,6 +23,7 @@ export class PlaceThumbnailComponent implements OnInit{
     }
 
     toVendor(){
+        console.log(this.id, this.model);
         this._router.navigate(['/place/', this.id]);
     } 
 

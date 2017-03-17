@@ -2,7 +2,7 @@
  * 
  */
 export class PlaceCondensedModel {
-    _id: string;
+    id: string;
     name: string;
     tags: Array<string>;
     distance: number;
