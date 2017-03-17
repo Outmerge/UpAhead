@@ -7,7 +7,7 @@ import mongoose = require("mongoose");
 import IUserInterestModel = require("./UserInterestModel");
 
 interface UserModel extends mongoose.Document {
-    key: string;
+    sessionKeys: Array<string>;
     username: string;
     password: string;
     favorites: Array<string>;

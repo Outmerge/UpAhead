@@ -4,9 +4,11 @@
 
 import express = require("express");
 import PlaceBusiness = require("./../app/business/PlaceBusiness");
+import UserBusiness = require("./../app/business/UserBusiness");
 import IBaseController = require("./BaseController");
 import IPlaceModel = require("./../app/model/interfaces/PlaceModel");
 import ICoordinateModel = require("./../app/model/interfaces/CoordinateModel");
+import IUserModel = require("./../app/model/interfaces/UserModel");
 
 class PlaceController implements IBaseController <PlaceBusiness> {
 
@@ -119,23 +121,25 @@ class PlaceController implements IBaseController <PlaceBusiness> {
     }
 
     addFavorite(req: express.Request, res: express.Response): void {
-        // To Do ...
         try {
 
             var _id: string = req.params._id;
-            var _coordinate: string = req.query.coordinate;
 
-            var placeBusiness = new PlaceBusiness();
+            var placeBusiness = new PlaceBusiness(),
+                userBusiness = new UserBusiness();
 
-            if (_coordinate) {
-                if (req.session && req.session['{place-id}' + _id]) {
-                    res.send(req.session['{place-id}' + _id]);
-                } else {
-                    placeBusiness.findByIdFromThirdParty(_id, _coordinate, (error, result) => {
-                        if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
-                        else res.send(result);
-                    });
-                }
+            if (req.session && req.session['{user-id}']) {
+                userBusiness.findBySessionId(req.session['{user-id}'], (error, user) => {
+                    if (error || !user) res.send({ success: false, message: 'There was an error while finding User in PlaceController.', error: error });
+                    else {
+                        if (user.favorites.indexOf(_id) === -1)
+                            user.favorites.push(_id);
+                        userBusiness.update(user._id, user, (error, result) => {
+                            if (error) res.send({ success: false, message: 'There was an error while updating User in PlaceController.', error: error });
+                            else res.send({ success: true });
+                        });
+                    }
+                });
             } else {
                 res.status(400).send({ success: false, message: 'Invalid request.', error: null });
             }
@@ -148,23 +152,28 @@ class PlaceController implements IBaseController <PlaceBusiness> {
     }
 
     removeFavorite(req: express.Request, res: express.Response): void {
-        // To Do ...
         try {
 
             var _id: string = req.params._id;
-            var _coordinate: string = req.query.coordinate;
 
-            var placeBusiness = new PlaceBusiness();
+            var placeBusiness = new PlaceBusiness(),
+                userBusiness = new UserBusiness();
 
-            if (_coordinate) {
-                if (req.session && req.session['{place-id}' + _id]) {
-                    res.send(req.session['{place-id}' + _id]);
-                } else {
-                    placeBusiness.findByIdFromThirdParty(_id, _coordinate, (error, result) => {
-                        if(error) res.send({ success: false, message: 'There was an error in PlaceController.', error: error });
-                        else res.send(result);
-                    });
-                }
+            if (req.session && req.session['{user-id}']) {
+                userBusiness.findBySessionId(_id, (error, user) => {
+                    if (error) res.send({ success: false, message: 'There was an error while finding User in PlaceController.', error: error });
+                    else {
+                        user.favorites = user.favorites.filter(
+                            item => {
+                                return item !== _id;
+                            }
+                        );
+                        userBusiness.update(user._id, user, (error, result) => {
+                            if (error) res.send({ success: false, message: 'There was an error while updating User in PlaceController.', error: error });
+                            else res.send({ success: true });
+                        });
+                    }
+                });
             } else {
                 res.status(400).send({ success: false, message: 'Invalid request.', error: null });
             }

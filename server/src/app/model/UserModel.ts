@@ -13,8 +13,8 @@ class UserModel {
         this._userModel = userModel;
     }
 
-    get key (): string {
-        return this._userModel.key;
+    get sessionKeys (): Array<string> {
+        return this._userModel.sessionKeys;
     }
 
     get username (): string {

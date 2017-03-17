@@ -9,7 +9,7 @@ class Routes {
 
     get routes() {
 
-        app.use("/places", new PlaceRoutes(new Middleware().allowAll).routes);
+        app.use("/places", new PlaceRoutes(new Middleware().track).routes);
 
         app.all('/*', (req: express.Request, res: express.Response) => {
             res.status(404).send({ success: false, message: 'Resource not found.', error: null });

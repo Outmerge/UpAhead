@@ -41,6 +41,13 @@ class UserBusiness implements IUserBusiness {
         this._userRepository.findById(_id, callback);
     }
 
+    findBySessionId (sessionKey: string, callback: (error: any, result: IUserModel) => void) {
+        let query: any = {
+            sessionKeys: sessionKey
+        };
+        this._userRepository.findOne(query, callback);
+    }
+
 }
 
 Object.seal(UserBusiness);

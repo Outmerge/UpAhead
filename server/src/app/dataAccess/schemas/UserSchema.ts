@@ -19,7 +19,7 @@ class UserSchema {
 
     static get schema () {
         var schema =  mongoose.Schema({
-            key: { type: String, required: true },
+            sessionKeys: { type: [ String ], required: true },
             username: { type: String, lowercase: true, match: /[a-z0-9-._]*/, index: { unique: true } },
             password: { type: String },
             favorites: [ String ],

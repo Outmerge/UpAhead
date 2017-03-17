@@ -24,7 +24,7 @@ class PlaceRoutes {
         router.put("/:_id", this.middleware, controller.update);
         router.get("/:_id", this.middleware, controller.findById);
         // router.delete("/:_id", this.middleware, controller.delete);
-        router.get("/:_id/favorite", this.middleware, controller.addFavorite);
+        router.post("/:_id/favorite", this.middleware, controller.addFavorite);
         router.delete("/:_id/favorite", this.middleware, controller.removeFavorite);
 
         return router;
