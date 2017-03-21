@@ -4,11 +4,11 @@ UpAhead helps you find the right gear shop for your next adventure.
 
 ## Requirements
 
-Git - https://git-scm.com/downloads
-NodeJS - https://docs.npmjs.com/getting-started/installing-node
-MongoDB - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
-NPM - https://docs.npmjs.com/getting-started/what-is-npm
-Redis Server *optional* - https://redis.io/download
+* Git - https://git-scm.com/downloads
+* NodeJS - https://docs.npmjs.com/getting-started/installing-node
+* MongoDB - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+* NPM - https://docs.npmjs.com/getting-started/what-is-npm
+* Redis Server *optional* - https://redis.io/download
 
 ## Setup
 
