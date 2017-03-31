@@ -37,7 +37,7 @@ body {
     color: #808080;
     font-size: 1.3em;
     font-weight: normal;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 .header-font span {
     color: #00A69C;
@@ -49,7 +49,7 @@ body {
     text-decoration: none;
     font-size: 1.3em;
     position: relative;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 .panel-header a.active {
     color: #00A69C;
@@ -90,7 +90,7 @@ body {
     position: absolute;
     text-align: center;
     color: #00A69C;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     z-index: 5;
     top: 50%;
     left: 50%;
@@ -106,7 +106,7 @@ body {
     font-size: 2em;
     letter-spacing: 0.009em;
     line-height: 1.4;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 .panel--bottom-section {
     background: rgb(238, 238, 238);
@@ -134,7 +134,7 @@ body {
     border-bottom: 2px solid #00A69C;
     font-size: 2.5em;
     padding: 10px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 
 }
 .panel-footer .input:focus{
@@ -200,12 +200,12 @@ body {
 }
 
 /*@font-face {
-    font-family: 'Lato-Regular';
-    src: url('../../assets/stylesheets/fonts/Lato-Regular.eot');
-    src: url('../../assets/stylesheets/fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),  
-         url('../../assets/stylesheets/fonts/Lato-Regular.woff') format('woff'), 
-         url('../../assets/stylesheets/fonts/Lato-Regular.ttf')  format('truetype'), 
-         url('../../assets/stylesheets/fonts/Lato-Regular.svg#Lato-Regular') format('svg');
+    font-family: 'Lato';
+    src: url('../../assets/stylesheets/fonts/Lato.eot');
+    src: url('../../assets/stylesheets/fonts/Lato.eot?#iefix') format('embedded-opentype'),  
+         url('../../assets/stylesheets/fonts/Lato.woff') format('woff'), 
+         url('../../assets/stylesheets/fonts/Lato.ttf')  format('truetype'), 
+         url('../../assets/stylesheets/fonts/Lato.svg#Lato') format('svg');
     font-weight: normal;
     font-style: normal;
 }
