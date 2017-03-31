@@ -1,14 +1,40 @@
+<head>
+    <link rel="stylesheet" href="home.component.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/fonts/fonts.css">
+</head>
+
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <img src="../../app/assets/img/logo.png" alt="image">
+    <div class="panel--top-section">
+        <div class="panel-header">
+            <div class="flex-container left">
+                <h2 class="header-font"><span>up</span>ahead</h2>
+            </div>
+            <div class="flex-container right">
+                <a href="#" class="active">about</a>
+                <a href="#">help</a>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <img src="../../assets/img/logo.png" alt="image">
+        </div>
+        <div class="panel-body">
+            <p>
+                UpAhead is a new app that lets you find the right gear shop for your next adventure.
+            </p>
+        </div>
     </div>
-    <div class="panel-body">
-        <h1>UpAhead</h1>
-        <p>UpAhead is a new app that lets you find the right gear shop for your next adventure.</p>
-    </div>
-    <div class="panel-footer">
-        <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="Look for a shop...">
-        <button type="button" class="btn btn-primary">Search</button>
+    <div class="panel--bottom-section">
+        <div class="panel-footer">
+            <div class="panel-footer--serach">
+                <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="What are you looking for ?">
+                <!-- <button type="button" class="btn btn-primary">Search</button> -->
+                <span class="focus-border"></span>
+            </div>
+            
+            <p>
+                Skateboarding, Longboarding, Mountain Boarding, <span>Sandboarding</span>, Drifting, BMX, Motocross, FMX, Aggressive Inline Skating, Mountain Biking, Caving, Slacklining, Absailing, Rock Climbing, Free Climbing, Bouldering, Mountaineering, Prkour, Sand kiting, Zorbing
+            </p>
+        </div>
     </div>
 </div>
                         
