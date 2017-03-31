@@ -1,6 +1,9 @@
 # Mac OS files
 .DS_Store
 
+# Redis
+dumb.rdb
+
 # Logs
 logs
 *.log
