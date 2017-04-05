@@ -16,7 +16,6 @@ import { LocationComponent } from './components/location/location.component';
 import { PlaceThumbnailComponent } from './components/place-thumbnail/place-thumbnail.component';
 import { PlaceComponent } from './components/place/place.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
-import { ResultsFooterComponent } from './components/results/results-footer/results-footer.component';
 
 // [Services]
 import { ConfigService } from './services/config.service';
@@ -44,8 +43,7 @@ const GOOGLE_MAPS_API_KEY: string = 'AIzaSyC6-YO_vES-kUYGmqekdtmyJc8hqNwsvhk';
         LocationComponent,
         PlaceThumbnailComponent,
         PlaceComponent,
-        FavoritesComponent,
-        ResultsFooterComponent
+        FavoritesComponent
     ],
     providers: [
         ConfigService,

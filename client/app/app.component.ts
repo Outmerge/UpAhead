@@ -8,7 +8,10 @@ import {Router} from '@angular/router';
 })
 
 export class AppComponent {
-
+    private hideElement: boolean = true;
     constructor(private _router: Router) {}
     ngOnInit() {}
+    hide(){
+        this.hideElement = false;
+    }
 }

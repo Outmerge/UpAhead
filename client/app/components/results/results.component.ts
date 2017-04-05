@@ -15,7 +15,6 @@ import { LocationService } from '../../services/location.service';
 
 import { LocationComponent } from '../location/location.component';
 import { PlaceComponent } from '../place/place.component';
-import { ResultsFooterComponent } from './results-footer/results-footer.component';
 
 import { PlaceCondensedModel } from '../../models/place-condensed.model';
 

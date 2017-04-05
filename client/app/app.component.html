@@ -1,3 +1,8 @@
 <div class="page">
 	<router-outlet></router-outlet>
+	<section *ngIf="hideElement" class="like-us">
+		<div class="star-icon"></div>
+		<div class="text">Like what you found?<a href="https://www.facebook.com/Outmerge/">Rate us!</a></div>
+		<div class="close-icon" (click)="hide()"></div>
+	</section>
 </div>
