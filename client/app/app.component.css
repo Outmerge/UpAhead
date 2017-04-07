@@ -7,7 +7,7 @@
 }
 
 .like-us{
-    position: fixed;
+    position: relative;
     bottom: 0px;
     background: #f2f2f2;
     /*padding: 20% 0 0 0;*/
