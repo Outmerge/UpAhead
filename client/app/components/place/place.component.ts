@@ -10,6 +10,8 @@ import { PlaceModel } from '../../models/place.model';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
+import { PlaceMapStyle } from '../../assets/styles/map.style';
+
 @Component({
     selector: 'place',
     templateUrl: './app/components/place/place.component.html',
@@ -23,6 +25,7 @@ export class PlaceComponent implements OnInit {
     public favorite: PlaceModel;
     public lat: string = '';
     public lng: string = '';
+    public mapStyle: Array<any> = PlaceMapStyle.GetStyle();
 
     constructor(private _router: Router,
                 private route: ActivatedRoute,

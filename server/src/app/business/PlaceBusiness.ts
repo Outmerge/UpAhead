@@ -138,6 +138,12 @@ class PlaceBusiness implements IPlaceBusiness {
         };
         
         // Add the main photo
+        // - check if photo was previously saved locally
+        // - ...
+        // -- save photo locally
+        // -- ...
+        
+        // - get photo url from Google if needed
         if (item.photos && item.photos.length > 0)
             place.photoUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth={_maxWidth}&photoreference={_photoReferance}&key={_apiKey}"
                 .replace('{_maxWidth}', '320')
