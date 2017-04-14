@@ -16,6 +16,9 @@ import { PlaceThumbnailComponent } from './components/place-thumbnail/place-thum
 import { PlaceComponent } from './components/place/place.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 
+//[Directives]
+import { DirectionsMapDirective } from './directives/google-map.directive';
+
 // [Services]
 import { ConfigService } from './services/config.service';
 import { PlacesService } from './services/places.service';
@@ -40,7 +43,8 @@ const GOOGLE_MAPS_API_KEY: string = 'AIzaSyC6-YO_vES-kUYGmqekdtmyJc8hqNwsvhk';
         ResultsComponent,
         PlaceThumbnailComponent,
         PlaceComponent,
-        FavoritesComponent
+        FavoritesComponent,
+        DirectionsMapDirective
     ],
     providers: [
         ConfigService,

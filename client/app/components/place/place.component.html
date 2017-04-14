@@ -16,6 +16,7 @@
     </div>
     <div class="getDirections"></div>
     <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]="mapStyle">
-        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+        <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker> -->
+        <sebm-google-map-directions *ngIf="origin && destination" [origin]="origin" [destination]="destination"></sebm-google-map-directions>
     </sebm-google-map>
 </div>

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 import { PlacesService } from '../../services/places.service';
@@ -8,9 +8,12 @@ import { LocationService} from '../../services/location.service';
 import { CoordinateModel } from '../../models/coordinate.model';
 import { PlaceModel } from '../../models/place.model';
 
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule,  } from 'angular2-google-maps/core';
 
 import { PlaceMapStyle } from '../../assets/styles/map.style';
+
+import { DirectionsMapDirective } from '../../directives/google-map.directive';
+
 
 @Component({
     selector: 'place',
@@ -27,12 +30,14 @@ export class PlaceComponent implements OnInit {
     public lng: string = '';
     public zoom: number = 14;
     public mapStyle: Array<any> = PlaceMapStyle.GetStyle();
-
+    public origin: CoordinateModel = null;
+    public destination: CoordinateModel = null; 
 
     constructor(private _router: Router,
                 private route: ActivatedRoute,
                 private _places: PlacesService,
                 private _location:LocationService) {}
+
     ngOnInit() {
 
         this.route.params
@@ -41,16 +46,20 @@ export class PlaceComponent implements OnInit {
         this._location.getCoordinates((position) => {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
-            let coordinate: CoordinateModel = <CoordinateModel>{
+            this.origin= <CoordinateModel>{
                 lat: latitude,
                 lng: longitude
             };
-            this._places.getDetails(this.theid, coordinate).subscribe(
+            this._places.getDetails(this.theid, this.origin).subscribe(
                 res => {
                     console.log(res);
                     this.place = res;
                     this.lat = this.place.coordinate.lat;
-                    this.lng = this.place.coordinate.lng;  
+                    this.lng = this.place.coordinate.lng; 
+                    this.destination = <CoordinateModel>{
+                        lat: this.place.coordinate.lat,
+                        lng: this.place.coordinate.lng
+            }; 
                 }
             );
         });
