@@ -12,7 +12,6 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 // [Components]
 import { HomeComponent } from './components/home/home.component';
 import { ResultsComponent } from './components/results/results.component';
-import { LocationComponent } from './components/location/location.component';
 import { PlaceThumbnailComponent } from './components/place-thumbnail/place-thumbnail.component';
 import { PlaceComponent } from './components/place/place.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
@@ -20,7 +19,6 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 // [Services]
 import { ConfigService } from './services/config.service';
 import { PlacesService } from './services/places.service';
-import { EmitterService } from './services/emitter.service';
 import { LocationService } from './services/location.service';
 
 // [Constants]
@@ -40,7 +38,6 @@ const GOOGLE_MAPS_API_KEY: string = 'AIzaSyC6-YO_vES-kUYGmqekdtmyJc8hqNwsvhk';
         AppComponent,
         HomeComponent,
         ResultsComponent,
-        LocationComponent,
         PlaceThumbnailComponent,
         PlaceComponent,
         FavoritesComponent
@@ -48,7 +45,6 @@ const GOOGLE_MAPS_API_KEY: string = 'AIzaSyC6-YO_vES-kUYGmqekdtmyJc8hqNwsvhk';
     providers: [
         ConfigService,
         PlacesService,
-        EmitterService,
         LocationService
     ],
     bootstrap: [

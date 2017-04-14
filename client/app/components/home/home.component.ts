@@ -21,9 +21,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {}
 
     queryPlaces() {
-        console.log('Hello world', this.query);
         this._router.navigate(['/results/', this.query]);
-        // Navigate to /results with this.query argument
-        // ...
     }
 }
