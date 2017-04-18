@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
+
 import { CoordinateModel } from '../../models/coordinate.model';
 import { PlaceCondensedModel } from '../../models/place-condensed.model';
 
@@ -29,6 +30,7 @@ export class ResultsComponent implements OnInit {
     public selectedCity: any;
     public places_number: number;
     public places: Array<PlaceCondensedModel> = [];
+    photos: Object;
 
     constructor(private _router: Router,
         private _places: PlacesService,
@@ -38,9 +40,9 @@ export class ResultsComponent implements OnInit {
     ngOnInit() {
         this._route.params
             .map(params => params['query'])
-            .subscribe(res => this.query = res)
-
+            .subscribe(res => this.query = res);
         this.search();
+        this.getFlickr();
     }
 
     goToFavorites() {
@@ -65,6 +67,13 @@ export class ResultsComponent implements OnInit {
                 }
             );
         });
+    }
+
+    getFlickr(){
+        this._places.getFlickr(this.query).subscribe(
+            res => {
+                 this.photos = res;
+            });
     }
 }
 

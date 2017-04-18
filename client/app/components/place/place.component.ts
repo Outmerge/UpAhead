@@ -8,7 +8,7 @@ import { LocationService} from '../../services/location.service';
 import { CoordinateModel } from '../../models/coordinate.model';
 import { PlaceModel } from '../../models/place.model';
 
-import { AgmCoreModule,  } from 'angular2-google-maps/core';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { PlaceMapStyle } from '../../assets/styles/map.style';
 
@@ -28,7 +28,7 @@ export class PlaceComponent implements OnInit {
     public favorite: PlaceModel;
     public lat: string = '';
     public lng: string = '';
-    public zoom: number = 14;
+    public zoom: number = 16;
     public mapStyle: Array<any> = PlaceMapStyle.GetStyle();
     public origin: CoordinateModel = null;
     public destination: CoordinateModel = null; 

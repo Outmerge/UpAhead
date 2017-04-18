@@ -19,6 +19,27 @@ export class PlacesService {
 
     constructor(private _http: Http,
         private _config: ConfigService) { }
+
+    getFlickr(query: string){
+        let url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=cb3856e77ccf23b9db42c77ad5c70d96&tags=${query}&per_page=1&format=json&nojsoncallback=1`;
+        return this._http
+            .get(url)
+            .map(res => res.json())
+            .map((val) => {
+                if (val.stat === 'ok') {
+                    return val.photos.photo.map((photo: any) => {
+                        let source = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
+                        return {
+                            url: source,
+                            title: photo.title
+                        }
+                    })
+                }
+                else {
+                    return [];
+                }
+            });
+    }
     
     list(query: string, coordinate: CoordinateModel) {
         const path = this._config.apiUrl + '/places?query={query}&coordinate={latitude},{longitude}'
