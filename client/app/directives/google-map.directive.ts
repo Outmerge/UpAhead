@@ -18,13 +18,13 @@ export class DirectionsMapDirective {
               var icons = {
                 start: new google.maps.MarkerImage(
                 // URL
-                '/app/assets/images/marker.png',
+                '/app/assets/images/marker-start.png',
                 // (width,height)
-                new google.maps.Size( 44, 32 ),
+                new google.maps.Size( 15, 13 ),
                 // The origin point (x,y)
                 new google.maps.Point( 0, 0 ),
                 // The anchor point (x,y)
-                new google.maps.Point( 22, 32 )
+                new google.maps.Point( 15, 13 )
                 ),
                 end: new google.maps.MarkerImage(
                 // URL
