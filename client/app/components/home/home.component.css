@@ -135,28 +135,25 @@
 }
 .panel-footer .input:focus{
     outline: none !important;
-    padding: 10px 20px;
     -webkit-transition: 0.3s ease;
     -moz-transition: 0.3s ease;
     transition: 0.3s ease;
-    border-radius: 5px;
 }
 .panel-footer .input ~ .focus-border {
     position: absolute;
-    border-radius: 5px;
-    height: 0;
+    height: 2px;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
     width: 0;
-    -webkit-transition: 0.3s ease-out;
-    -moz-transition: 0.3s ease-out;
-    transition: 0.3s ease-out;
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition: 0.5s ease-out;
+    transition: 0.5s ease-out;
 }
 .panel-footer .input:focus ~ .focus-border {
-    height: 66px;
     width: 100%;
-    border: 2px solid #00A69C;
+    left: 0;
+    background: #444444;;
+    height: 2px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #bdbdbd;
