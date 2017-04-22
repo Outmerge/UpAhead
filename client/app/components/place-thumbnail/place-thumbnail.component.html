@@ -1,49 +1,14 @@
-<head>
-    <link rel="stylesheet" href="place-thumbnail.component.css">
-    <!-- <link rel="stylesheet" href="../../assets/stylesheets/fonts/fonts.css"> -->
-</head>
 
-<div class="panel panel-default">
-    <div class="panel--menu-container">
-        <ul>
-            <li><a href="#">Help</a></li>
-            <li> <a href="#">About</a></li>
-            <li><a href="#">Home</a></li>
-        </ul>
-    </div>
-    <div class="panel--top-section">
-        <div class="panel-header flex-container">
-            <div class="flex-item left">
-                <img src="../../assets/img/logo.png" alt="image">
-                <h2 class="header-font"><span>up</span>ahead</h2>
-            </div>
-            <div class="flex-item right">
-                <p>
-                    Great attitude is like a perfect cup of coffe - don't start<br>
-                    your day without it. Good morening.
-                </p>
-            </div>
+<article>
+    <div class="btm-container">
+        <div class="img-container">
+            <!-- *ngIf="!model.photoUrl" -->
+            <img src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="desc-container">
+            <div class="distance"><!-- <img src="../icon/location.png"> --> {{model.distance}} m </div>
+            <div class="vender-name">{{model.name}}</div>
+            <div class="btn btn-view" (click)="toVendor()">shoes sport t-shirts ...</div>
         </div>
     </div>
-    <div class="panel--page-section">
-        <div class="wrapper">
-            <div class="panel-serach">
-                <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="What are you looking for ?">
-                <!-- <button type="button" class="btn btn-primary">Search</button> -->
-                <span class="focus-border"></span>
-            </div>
-            <div class="pure-g shop-list">
-                <article class="pure-u-1-3 space vender-prw">
-                    <div class="top-container" *ngIf="!model.photoUrl">
-                        <img src="http://placehold.it/500x300" alt="">
-                    </div>
-                    <div class="btm-container">
-                        <div class="distance"><!-- <img src="../icon/location.png"> --> {{model.distance}} m </div>
-                        <div class="vender-name">{{model.name}}</div>
-                        <div class="btn btn-view" (click)="toVendor()">shoes sport t-shirts ...</div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</div>
+</article>

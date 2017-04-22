@@ -1,5 +1,56 @@
-<div class="top-container">
-        <div class="panel-header">
+<div class="result-container">
+    <div class="panel--menu-container">
+        <ul>
+            <li><a href="#">Help</a></li>
+            <li> <a href="#">About</a></li>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+    <div class="panel--top-section">
+        <div class="panel-header flex-container">
+            <div class="flex-item left">
+                <img src="app/assets/images/logo.png" alt="image">
+                <h2 class="header-font"><span>up</span>ahead</h2>
+            </div>
+            <div class="flex-item right">
+                <p>
+                    Great attitude is like a perfect cup of coffe - don't start<br>
+                    your day without it. Good morening.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="panel--page-section">
+        <div class="wrapper">
+            <div class="favorites" (click)="goToFavorites">
+                Here you can go through your <span>Favorite</span> places
+            </div>
+            <div class="panel-serach">
+                <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="What are you looking for ?">
+                <!-- <button type="button" class="btn btn-primary">Search</button> -->
+                <span class="focus-border"></span>
+            </div>
+            <div class="places_number">{{places_number}} result(s)</div>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="pure-g shop-list">
+                        <div class="pure-u-1-3 space vender-prw">
+                            <place-thumbnail 
+                            *ngFor="let place of places" class="results-place" [model]="place">
+                            </place-thumbnail>
+                        </div>
+                        <div class="pure-u-1-3 space vender-prw" *ngIf="dataLoaded">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!dataLoaded">Loading</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- <div class="panel-header">
             <input class="input" type="text" [(ngModel)]="query" (change)="search()">
             <div *ngIf="photos">
                 <div class="card-image">
@@ -13,17 +64,6 @@
                     <img src={{photos[0].url}}>
                 </div>     
             </div>
-        </div>
-        <div class="places_number">{{places_number}} results 
-        </div>
-        <div class="favorites" (click)="goToFavorites">Favorites 
-        </div>
-</div>
-<div class="container">
-        <div class="row" *ngIf="dataLoaded">
-            <place-thumbnail 
-                *ngFor="let place of places" class="results-place" [model]="place">
-            </place-thumbnail>
-        </div>
-        <div class="row" *ngIf="!dataLoaded">Loading</div>
-</div>
+        </div> -->
+    
+
