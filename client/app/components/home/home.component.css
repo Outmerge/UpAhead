@@ -28,25 +28,29 @@
 .flex-container {
     display: inline-flex;
     width: 49%;
+    justify-content: flex-start;;
 }
 .flex-container.right {
     justify-content: flex-end;
 }
 .header-font {
+    font-weight: normal;
     color: #808080;
-    font-size: 1.3em;
+    font-size: 1.5em;
     margin: 25px 0;
 }
 .header-font span {
     color: #00A69C;
+    font-weight: normal;
 }
 .panel-header a {
-    color: #808080;
+    font-weight: normal;
+    font-size: 24px;
+    color: #828282;
     padding: 5px 2px;
     margin: 0 20px;
     text-decoration: none;
-    font-size: 1.3em;
-    font-weight: 300;
+    font-size: 1.5em;
     position: relative;
 }
 .panel-header a.active {
@@ -91,19 +95,17 @@
     z-index: 5;
     top: 50%;
     left: 50%;
-    width: 700px;
+    width: 800px;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
-.panel-body p,
-.panel-footer p{
-    color: #808080;
-    font-size: 2em;
-    font-weight: 300;
+.panel-body p {
+    font-weight: normal;
+    color: #828282;
+    font-size: 2.25em;
     letter-spacing: 0.009em;
-    line-height: 1.4;
 }
 .panel--bottom-section {
     position: relative;
@@ -121,16 +123,20 @@
     transform: translate(-50%, 0);
     background: #ffffff;
     padding: 40px 40px;
+    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .panel-footer--serach {
     position: relative;
 }
 .panel-footer .input{
+    font-weight: normal;
     width: 100%;
     border: none;
     color: #bdbdbd;
-    border-bottom: 3px solid #00A69C;
-    font-size: 2.5em;
+    border-bottom: 4px solid #00A69C;
+    font-size: 3em;
     padding: 10px 0;
 }
 .panel-footer .input:focus{
@@ -141,7 +147,7 @@
 }
 .panel-footer .input ~ .focus-border {
     position: absolute;
-    height: 2px;
+    height: 4px;
     bottom: 0;
     left: 50%;
     width: 0;
@@ -153,7 +159,7 @@
     width: 100%;
     left: 0;
     background: #444444;;
-    height: 2px;
+    height: 4px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #bdbdbd;
@@ -186,13 +192,14 @@
     transition-delay: 50ms;
 }
 .panel-footer p {
-    letter-spacing: 0;
+    padding: 30px 0 10px;
+    font-weight: 300;
+    font-size: 1.375em;
+    letter-spacing: 0.44px;
+    color: #6F6F6F;
     line-height: 1.6;
-    font-size: 1.4em;
-    font-weight: 100;
 }
 .panel-footer p > span {
-    font-weight: 100;
     margin: 0 1px;
     cursor: pointer;
 }

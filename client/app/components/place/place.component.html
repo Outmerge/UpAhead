@@ -1,28 +1,77 @@
 <div class="vendor">
-    <div class="top-container">
-        <div class="top-bar">
-            <button class="btn btn-back">Back</button>
-            <title class="title" *ngIf="place">{{place.name}}</title>
-            <button class="addFav" (click)="addToFavorite()">add to Favorites</button>
+    <div class="place-container">
+        <div class="panel--menu-container">
+            <ul>
+                <li><a href="#">Help</a></li>
+                <li> <a href="#">About</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
         </div>
-        <img *ngIf="place" src="{{place.photoUrl}}" alt="">
-        <div class="tags" *ngIf="place">{{place.tags}}</div>
+        <div class="panel--top-section">
+            <div class="panel-header flex-container">
+                <div class="flex-item left">
+                    <img src="app/assets/images/logo.png" alt="image">
+                    <h2 class="header-font"><span>up</span>ahead</h2>
+                </div>
+                <div class="flex-item right">
+                    <p>
+                        Great attitude is like a perfect cup of coffe - don't start<br>
+                        your day without it. Good morening.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="panel--page-section">
+            <div class="top-container">
+                <div class="img-container">
+                    <img *ngIf="place" src="{{place.photoUrl}}" alt="">
+                </div>
+                <div class="quote">
+                    <img src="app/assets/images/directions-line.png">
+                    <h2 class="place-quote">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis arcu congue sociosqu dictumst venenatis senectus euismod."
+                    </h2>
+                </div>
+            </div>
+            <div class="main-container">
+                <div class="wrapper">
+                    <div class="place-desc">
+                        <div class="text-box center">
+                            <!-- <button class="btn btn-back">Back</button> -->
+                            <div class="distance">1213 m</div>
+                            <div class="name" *ngIf="place">{{place.name}}</div>
+                            <!-- <div class="tags" *ngIf="place">{{place.tags}}</div> -->
+                            <div class="tags">shoes sport t-hirts ...</div>
+                            <!-- <button class="addFav" (click)="addToFavorite()">add to Favorites</button> -->
+                        </div>
+                        <div class="text-box">
+                            <!-- <div class="text" *ngIf="place">{{place.address}}</div> -->
+                            <div class="text">Viitorului Street, No. 117-119, 02104023, Bucharest</div>
+                        </div>
+                        <div class="text-box">
+                            <!-- <div class="text" *ngIf="place">{{place.description}}</div> -->
+                            <div class="text">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                        </div>
+                        <div class="text-box links">
+                            <div class="left">
+                                <!-- <a class="text" href="mailto:{{place.contact.email}}" *ngIf="place">{{place.contact.email}}</a> -->
+                                <a class="text" href="mailto:contact@epicsport.com">contact@epicsport.com></a>
+                            </div>
+                            <div class="right">
+                                <!-- <a class="text" href="tel:{{place.contact.phone}}" *ngIf="place">{{place.contact.phone}}</a> -->
+                                <a class="text" href="tel:00407362124">0040 736 21 24</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <div class="main-container">
-        <div class="text-box">
-            <div class="adress" *ngIf="place">{{place.address}}</div>
-        </div>
-        <div class="text-box">
-            <div class="description" *ngIf="place">{{place.description}}</div>
-        </div>
-        <div class="text-box">
-            <div class="left">
-                <a href="mail:example@gmail.com" *ngIf="place">{{place.contact.email}}></a>
-            </div>
-            <div class="right">
-                <a href="mail:0040740770089" *ngIf="place">{{place.contact.phone}}>></a>
-            </div>
-        </div>
+        
         <div class="map"></div>
     </div>
     <div class="getDirections"></div>

@@ -1,8 +1,118 @@
-.title{
-    display: block;
-    font-size: 1.5em;
+.top-container {
+	padding-left: 70px;
+	position: relative;
 }
-
+.top-container .img-container img {
+	width: 100%;
+	height: 600px;
+	object-fit: cover;
+}
+.top-container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.75);
+	z-index: 1;
+}
+.top-container .quote {
+	position: absolute;
+	text-align: center;
+	z-index: 5;
+	top: calc(50% - 50px);
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 700px;
+}
+.top-container .quote img {
+	padding-bottom: 20px; 
+}
+.place-quote {
+	font-family: "Lato", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.625em;
+	color: #828282;
+}
+.main-container {
+	background: #eeeeee;
+	padding-bottom: 30px;
+}
+.place-desc {
+	position: relative;
+	z-index: 10;
+	top: -100px;
+	margin-bottom: -150px;
+}
+.text-box {
+	background: #ffffff;
+	padding: 25px 30px;
+	margin: 30px auto;
+	-webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	width: 800px;
+}
+.text-box:first-child {
+	margin-top: 0;
+}
+.text-box.center {
+	text-align: center;
+}
+.text-box.links {
+	padding: 25px 30px 50px;
+}
+.text-box .text {
+	font-weight: 300;
+	font-size: 22px;
+	line-height: 1.25;
+	letter-spacing: 0.22px;
+	color: #9D9D9D;
+	text-align: justify;
+	text-decoration: none;
+}
+.text-box .left {
+	float: left;
+}
+.text-box .right {
+	float: right;
+}
+.distance {
+	font-weight: normal;
+	font-size: 1.375em;
+	line-height: 1.15;
+	letter-spacing: 0.22px;
+	color: #00A69C;
+}
+.tags {
+	font-weight: 300;
+	font-size: 1.375em;
+	line-height: 1.25;
+	letter-spacing: 0.22px;
+	color: #9D9D9D;
+}
+.name {
+	font-weight: bold;
+	font-size: 3em;
+	color: #444444;
+	line-height: 1;
+	padding: 20px 50px;
+	position: relative;
+}
+/*.name:before {
+	content: '';
+	position: absolute;
+	width: 45px;
+	height: 60px;
+	top: 15px;
+	left: 40px;
+	background: url(/app/assets/images/add-line.png) no-repeat;
+	background-size: 45px;
+}*/
 .sebm-google-map-container {
-  height: 300px;
+  height: 500px;
 }

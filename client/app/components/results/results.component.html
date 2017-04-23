@@ -34,13 +34,11 @@
             <div class="container">
                 <div class="wrapper">
                     <div class="pure-g shop-list">
-                        <div class="pure-u-1-3 space vender-prw">
-                            <place-thumbnail 
+                        <place-thumbnail 
                             *ngFor="let place of places" class="results-place" [model]="place">
-                            </place-thumbnail>
-                        </div>
-                        <div class="pure-u-1-3 space vender-prw" *ngIf="dataLoaded">
-                        </div>
+                        </place-thumbnail>
+                    </div>
+                    <div class="pure-u-1-3 space vender-prw" *ngIf="dataLoaded">
                     </div>
                 </div>
                 <div class="row" *ngIf="!dataLoaded">Loading</div>
