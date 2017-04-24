@@ -2,8 +2,8 @@
     <article>
         <div class="btm-container">
             <div class="img-container">
-                <!-- *ngIf="!model.photoUrl" -->
-                <img src="http://placehold.it/500x300" alt="">
+                <img *ngIf="!model.photoUrl" src="../../app/assets/images/fail-img.jpg" alt="">
+                <img *ngIf="model.photoUrl" src="{{ model.photoUrl }}" alt="">
             </div>
             <div class="desc-container">
                 <div class="distance"><!-- <img src="../icon/location.png"> --> {{model.distance}} m </div>

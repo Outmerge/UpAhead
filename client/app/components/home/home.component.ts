@@ -23,4 +23,12 @@ export class HomeComponent implements OnInit {
     queryPlaces() {
         this._router.navigate(['/results/', this.query]);
     }
+
+    toAbout(){
+        this._router.navigate(['/about/']);
+    }
+
+    toHelp(){
+        this._router.navigate(['/help/']);
+    }
 }

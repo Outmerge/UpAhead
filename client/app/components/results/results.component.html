@@ -15,18 +15,18 @@
             <div class="flex-item right">
                 <p>
                     Great attitude is like a perfect cup of coffe - don't start<br>
-                    your day without it. Good morening.
+                    your day without it. Good morning.
                 </p>
             </div>
         </div>
     </div>
     <div class="panel--page-section">
         <div class="wrapper">
-            <div class="favorites" (click)="goToFavorites">
-                Here you can go through your <span>Favorite</span> places
+            <div class="favorites">
+                Here you can go through your <span (click)="goToFavorites()">Favorite</span> places
             </div>
             <div class="panel-serach">
-                <input class="input" type="text" (change)="queryPlaces()" [(ngModel)]="query" placeholder="What are you looking for ?">
+                <input class="input" type="text" (change)="search()" [(ngModel)]="query" placeholder="What are you looking for ?">
                 <!-- <button type="button" class="btn btn-primary">Search</button> -->
                 <span class="focus-border"></span>
             </div>
