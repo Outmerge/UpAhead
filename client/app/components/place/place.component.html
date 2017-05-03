@@ -39,10 +39,14 @@
                         <div class="text-box center">
                             <!-- <button class="btn btn-back">Back</button> -->
                             <div class="distance">1213 m</div>
-                            <div class="name" *ngIf="place">{{place.name}}</div>
+                            <div class="place-name">
+                                <button class="addFav" (click)="addToFavorite()">
+                                    <img src="../../app/assets/images/remove-line.png">
+                                </button> 
+                                <div class="name" *ngIf="place">{{place.name}}</div>
+                            </div>
                             <!-- <div class="tags" *ngIf="place">{{place.tags}}</div> -->
                             <div class="tags">shoes sport t-hirts ...</div>
-                            <!-- <button class="addFav" (click)="addToFavorite()">add to Favorites</button> -->
                         </div>
                         <div class="text-box">
                             <!-- <div class="text" *ngIf="place">{{place.address}}</div> -->

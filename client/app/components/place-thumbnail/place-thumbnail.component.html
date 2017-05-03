@@ -1,5 +1,5 @@
 <div class="pure-u-1-3 space vender-prw">
-    <article>
+    <article (click)="toVendor()">
         <div class="btm-container">
             <div class="img-container">
                 <img *ngIf="!model.photoUrl" src="../../app/assets/images/fail-img.jpg" alt="">
@@ -7,8 +7,11 @@
             </div>
             <div class="desc-container">
                 <div class="distance"><!-- <img src="../icon/location.png"> --> {{model.distance}} m </div>
-                <div class="vender-name">{{model.name}}</div>
-                <div class="btn btn-view" (click)="toVendor()">shoes sport t-shirts ...</div>
+                    <!-- <div class="add-favorites">
+                        <img src="../../app/assets/images/add-line.png">
+                    </div> -->
+                    <div class="vender-name">{{model.name}}</div>
+                <div class="btn btn-view">shoes sport t-shirts ...</div>
             </div>
         </div>
     </article>
