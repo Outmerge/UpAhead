@@ -157,8 +157,8 @@
     transition: 0.5s ease-out;
 }
 .panel-serach .input:focus ~ .focus-border {
-    width: 100%;
-    left: 0;
+    width: calc(100% - 40px);
+    left: 20px;
     background: #444444;
     height: 4px;
 }

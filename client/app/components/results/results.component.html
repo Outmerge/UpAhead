@@ -22,15 +22,12 @@
     </div>
     <div class="panel--page-section">
         <div class="wrapper">
-            <div class="favorites">
-                Here you can go through your <span (click)="goToFavorites()">Favorite</span> places
-            </div>
             <div class="panel-serach">
                 <input class="input" type="text" (change)="search()" [(ngModel)]="query" placeholder="What are you looking for ?">
-                <div class="places_number">{{places_number}} result(s)</div>
                 <!-- <button type="button" class="btn btn-primary">Search</button> -->
                 <span class="focus-border"></span>
             </div>
+            <div class="places_number">{{places_number}} result(s)</div>
             <div class="container">
                 <div class="wrapper">
                     <div class="pure-g shop-list">

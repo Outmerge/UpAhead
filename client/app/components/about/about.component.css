@@ -1,0 +1,30 @@
+.panel--page-section {
+    background: rgb(238, 238, 238);
+    padding: 50px 30px;
+}
+.page-container {
+	max-width: 1000px;
+}
+.page-title {
+	font-family: "Lato";
+	font-weight: normal;
+	font-size: 48px;
+	color: #00A69C;
+	margin: 50px 0;
+}
+.page-subtitle {
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 36px;
+	color: #00A69C;
+	margin: 80px 0 50px;
+}
+.page-container p {
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 1.4;
+	letter-spacing: 0.24px;
+	color: #000000;
+	padding-bottom: 30px;
+}
