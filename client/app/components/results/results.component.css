@@ -29,3 +29,25 @@
     box-sizing: border-box;
     padding: 10px 15px 0;
 }
+
+@media screen and (max-width: 1300px) {
+    .panel--page-section > .wrapper {
+        padding: 0 10px 0 50px;
+    }
+
+}
+@media screen and (max-width: 1024px) {
+    
+}
+@media screen and (max-width: 767px) {
+    
+}
+@media screen and (max-width: 567px) {
+    .panel--page-section > .wrapper {
+        padding: 0 0 0 35px;
+    }
+    .places_number {
+        font-size: 1em;
+        padding-top: 20px;
+    }
+}

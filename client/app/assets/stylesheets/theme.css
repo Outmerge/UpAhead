@@ -13,6 +13,9 @@
 }
 
 /* Left menu container */
+.panel--menu {
+    position: relative;
+}
 .panel--menu-container {
     position: fixed;
     left: 0;
@@ -173,4 +176,80 @@
 }
 :-moz-placeholder { /* Firefox 18- */
   color: #bdbdbd;
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        padding: 0 40px;
+    }
+    .panel--top-section {
+        padding-left: 55px;
+    }
+    .panel-header img {
+        width: 65px;
+        height: 65px;
+        padding-right: 0;
+    }
+    .header-font {
+        font-size: 1.7em;
+    }
+    .panel-header p, .panel--menu-container li a {
+        font-size: 1.15em;
+        margin: 5px 20px 0 0;
+    }
+    .panel--menu-container li a {
+        margin: 0 20px 0 15px;
+    }
+    .panel-serach .input {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .wrapper {
+        padding: 0 0 0 40px;
+    }
+    .panel-header {
+        display: block;
+        padding: 10px 0;
+    }
+    .flex-item {
+        margin: 5px 0;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 567px) {
+    .wrapper {
+        padding: 0 0 0 20px;
+    }
+    .panel-header {
+        padding: 10px 0;
+    }
+    .panel-header p {
+        font-size: 1em;
+        margin: 5px 10px 0 40px;
+    }
+    .panel--menu-container li {
+        padding: 25px 0;
+        margin: 0 -20px;
+    }
+    .panel--menu-container li a {
+        font-size: 0.9em;
+        margin: 0 17px 0 13px;
+    }
+    .panel--top-section {
+        padding-left: 35px;
+    }
+    .panel-header img {
+        width: 50px;
+        height: 50px;
+    }
+    .header-font {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+    .panel-serach .input {
+        font-size: 1.5em;
+        padding: 5px 0;
+    }
 }

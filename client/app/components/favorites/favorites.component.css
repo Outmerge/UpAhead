@@ -30,3 +30,24 @@
     font-size: 1.5em;
     text-align: center; 
 }
+
+@media screen and (max-width: 1300px) {
+    .panel-footer {
+        width: 850px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .panel-footer {
+        width: 850px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .panel-footer {
+        width: 850px;
+    }
+}
+@media screen and (max-width: 567px) {
+    .panel-footer {
+        width: 850px;
+    }
+}
